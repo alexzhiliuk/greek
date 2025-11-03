@@ -1,0 +1,31 @@
+// Container
+$conteinerWidth: 1400 + px;
+$containerPadding: 10 + px;
+
+// Breakpoints
+$breakpoint1440: 1439.98 + px;
+$breakpoint1400: 1399.98 + px;
+$breakpoint1200: 1199.98 + px;
+$breakpoint1024: 1023.98 + px;
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint576: 575.98 + px;
+$breakpoint480: 479.98 + px;
+
+// Colors
+$colorWhite: #F5F2F0;
+$colorBlack: #2C2C2C;
+$colorGray: #DBD6D5;
+
+// Fonts
+$fontPrimary: ArnoPro;
+
+// Layers
+$headerLayer: 9;
+$popupLayer: 10;
+
+// Burger
+$burgerBreakpoint: $breakpoint1024;
+
+// Transitions
+$quickTransition: all 120ms ease-out;

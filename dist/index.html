@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicons -->
+     
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&_v=20251103182114" rel="stylesheet">
+    
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.css?_v=20251103182114">
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css?_v=20251103182114"
+    />
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js?_v=20251103182114"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?_v=20251103182114"></script>
+
+    <title>Карта лояльности</title>
+</head>
+    <body>
+
+
+        <main class="">            
+            <div class="card">
+                <img src="img/Card.png" alt="">
+                <div class="tooltip">
+                    <img src="img/tooltip.svg" alt="" class="tooltip__icon">
+                    <div class="tooltip__text">
+                        <h2>gold card status Greek legend</h2>
+                        <p>Бренд греческого оливкового масла greek legend предоставляет возможность оформить золотую карту постоянного покупателя только для гостей ресторана cale. </p>
+                        <p>В основе масла — проверенные веками технологии изготовления настоящего фермерского масла. </p>
+                        <p>Подробнее о бренде на <a href="https://greeklegend.gr">greeklegend.gr</a></p>
+                    </div>
+                </div>
+            </div>
+            <form action="" class="form container">
+                <div class="input-block" data-tab="1">
+                    <label for="">Номер телефона</label>
+                    <div class="input-wrapper">
+                        <input type="tel" class="input" placeholder="+7 902 475–21–88" required data-tel-input>
+                        <div class="input-wrapper__btn" data-to-tab="2" id="sendCode">подтвердить</div>
+                    </div>
+                </div>
+                <div class="input-block hidden" data-tab="2">
+                    <label for="">Код подтверждения из смс: <span class="op-50" data-to-tab="1" id="changeNumber">Изменить номер</span></label>
+                    <div class="input-wrapper">
+                        <input type="text" class="input" placeholder="Код" required>
+                        <div class="input-wrapper__btn" data-to-tab="3">готово</div>
+                        <div class="input-wrapper__caption op-50" id="resendCodeCaption">Отправить повторно через: <span id="oneMoreTimeSeconds"> 30</span></div>
+                    </div>
+                </div>
+                <div class="input-block hidden" data-tab="3">
+                    <label for="">Номер телефона подтверждён</label>
+                    <div class="input-wrapper">
+                        <input type="tel" class="input" disabled placeholder="+7 902 475–21–88" required data-tel-input>
+                    </div>
+                </div>
+                <div class="radio-block">
+                    <label>
+                        МУЖСКОЙ
+                        <input type="radio" name="sex" value="man" checked>
+                    </label>
+                    <label>
+                        ЖЕНСКИЙ
+                        <input type="radio" name="sex" value="woman">
+                    </label>
+                </div>
+                <div class="input-block">
+                    <label for="">Дата рождения</label>
+                    <div class="input-wrapper">
+                        <input type="date" class="input" placeholder="01.12.2000" required>
+                    </div>
+                </div>
+                <div class="checkboxes">
+                    <label  class="checkbox-block">
+                        <input type="checkbox" required>
+                        Я согласен на обработку своих персональных данных и ознакомлен с правилами программы
+                    </label>
+                    <label  class="checkbox-block">
+                        <input type="checkbox" >
+                        Я подтверждаю свое согласие на получение рекламных и иных информационных сообщений
+                    </label>
+                </div>
+                <div class="form__submit">
+                    <button type="submit">оформить карту</button>
+                </div>
+            </form>
+        </main>
+
+        <script src="js/app.min.js?_v=20251103182114"></script>
+        <script>
+            $("[data-to-tab]").click(function () { 
+                let idTab = $(this).attr('data-to-tab')
+                $(this).parents("[data-tab]").addClass("hidden")
+                $("[data-tab=" + idTab +  "]").removeClass("hidden")
+             })
+        </script>
+        <script>
+            $(document).ready(function() {
+                let countdownInterval;
+                let seconds = 30;
+                const $caption = $('#resendCodeCaption');
+
+                function startTimer() {
+                    seconds = 30;
+                    updateTimerDisplay();
+                    
+                    countdownInterval = setInterval(function() {
+                        seconds--;
+                        updateTimerDisplay();
+                        
+                        if (seconds <= 0) {
+                            clearInterval(countdownInterval);
+                            showResendButton();
+                        }
+                    }, 1000);
+                }
+
+                function updateTimerDisplay() {
+                    $caption.html('Отправить повторно через: <span id="oneMoreTimeSeconds">' + seconds + '</span>');
+                }
+
+                function showResendButton() {
+                    $caption.removeClass("op-50")
+                    $caption.html('<a href="#" id="resendButton" class="resend-link">Отправить повторно</a>');
+                    
+                    // Используем делегирование событий для надежности
+                    $caption.off('click', '#resendButton').on('click', '#resendButton', function(e) {
+                        e.preventDefault();
+                        resetToTimer();
+                    });
+                }
+
+                function resetToTimer() {
+                    clearInterval(countdownInterval); // Очищаем предыдущий интервал на всякий случай
+                    startTimer();
+                    $caption.addClass("op-50")
+                }
+
+                $("#sendCode").click(function() {
+                    // Инициализация
+                    startTimer();
+                })
+                
+                $("#changeNumber").click(function() {
+                    // Инициализация
+                    clearInterval(countdownInterval);
+                })
+
+            });
+        </script>
+    </body>
+</html>
