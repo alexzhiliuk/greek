@@ -862,7 +862,7 @@ button {
   transition: transform 0.1s ease-out;
   border-radius: 18px;
   z-index: -1;
-  background: url(../../img/hero/hero.png) center center/cover no-repeat;
+  background: url(../img/hero/hero.png) center center/cover no-repeat;
 }
 @media screen and (max-width: 575.98px) {
   .hero__image {
