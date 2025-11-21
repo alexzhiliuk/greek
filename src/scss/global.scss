@@ -4,7 +4,6 @@
     margin: 0;
     box-sizing: border-box;
     font-family: $fontPrimary;
-    color: $colorBlack;
 }
 
 *,
@@ -17,8 +16,16 @@
     max-width: calc($conteinerWidth + 2 * $containerPadding);
     width: 100%;
     margin: 0 auto;
-    padding: 0 calc(2 * $containerPadding);
+    padding: 0 $containerPadding;
 
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 
@@ -28,6 +35,7 @@ body {
     min-height: 100vh;
     overflow-x: clip;
     scroll-behavior: smooth;
+    color: $colorBlack;
 }
 
 body {
@@ -38,8 +46,8 @@ body {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
 }
 
 ul, ol {
@@ -67,6 +75,58 @@ button {
 
 .op-50 {
     opacity: .5;
+}
+
+.mt-80 {
+    margin-top: clamp(48px, 8vw, 80px);
+}
+
+.gcc {
+    justify-content: center;
+}
+
+.tac {
+    text-align: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lower {
+    text-transform: lowercase;
+}
+
+.top-border {
+    border-top: 1px solid rgba(0, 0, 0, 1);
+}
+
+.grid {
+    --gap: clamp(20px, 2.5vw, 24px);
+    display: grid;
+    gap: var(--gap);
+
+    &_4-col {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        @media screen and (max-width: $breakpoint1024) {
+            grid-template-columns: 1fr;
+            .col-span-2 {
+                grid-column: 1 span;
+            }
+        }
+    }
+}
+
+.col-span-2 {
+    grid-column: 2 span;
+}
+
+// flex
+.col-em {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 $width: min(68%, 500px);

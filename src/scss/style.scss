@@ -3,6 +3,15 @@
 @import "vars";
 @import "reset";
 @import "global";
+@import "typo";
+
+@import "./sections/sections";
+@import "./sections/hero";
+@import "./sections/salad";
+@import "./sections/advantages";
+@import "./sections/oil";
+@import "./sections/stages";
+@import "./sections/history";
 
 
 @import "../libs/swiper/swiper";

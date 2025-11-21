@@ -1,0 +1,27 @@
+.section {
+    margin-top: clamp(120px, 20vw, 200px);
+    margin-bottom: clamp(120px, 20vw, 200px);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 3vw, 32px);
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        &_row {
+            flex-direction: row;
+        }
+    }
+
+    &__body {
+        &.top-border {
+            padding-top: clamp(20px, 6vw, 64px);
+        }
+    }
+
+}

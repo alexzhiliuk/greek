@@ -1,0 +1,150 @@
+.advantages {
+    --gap: clamp(20px, 2.5vw, 24px);
+    display: grid;
+    gap: 0;
+    row-gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @media screen and (max-width: $breakpoint1200) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: $breakpoint576) {
+        grid-template-columns: 1fr;
+    }
+
+    &._all {
+        .advantage {
+            &:nth-child(n + 5) {
+                display: flex;
+            }
+        }
+    }
+
+    .advantage {
+        --cols: 4;
+        @media screen and (min-width: $breakpoint1200) {
+            &:nth-child(n + 5) {
+                margin-top: 32px;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: -32px;
+                    height: 1px;
+                    background: rgba(0, 0, 0, 1);
+                }
+            }
+            &:nth-child(4n) {
+                padding-right: 0;
+                border-right: none;
+            }
+            &:nth-child(4n + 1) {
+                padding-left: 0;
+            }
+        }
+
+        @media screen and (min-width: $breakpoint576) and (max-width: $breakpoint1200) {
+            &:nth-child(n + 3) {
+                margin-top: 32px;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: -32px;
+                    height: 1px;
+                    background: rgba(0, 0, 0, 1);
+                }
+            }
+            &:nth-child(2n) {
+                padding-right: 0;
+                border-right: none;
+            }
+            &:nth-child(2n + 1) {
+                padding-left: 0;
+            }
+        }
+
+        @media screen and (max-width: $breakpoint576) {
+            &:nth-child(n + 2) {
+                margin-top: 32px;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: -32px;
+                    height: 1px;
+                    background: rgba(0, 0, 0, 1);
+                }
+            }
+            &:nth-child(n) {
+                padding-right: 0;
+                border-right: none;
+            }
+            &:nth-child(n + 1) {
+                padding-left: 0;
+            }
+
+            &:nth-child(n + 5) {
+                display: none;
+            }
+        }
+    }
+
+    &__show-all {
+        @media screen and (min-width: $breakpoint576) {
+            display: none;
+        }
+        width: 132px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        margin: 32px auto 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $colorGray;
+    }
+
+}
+
+.advantage {
+
+    display: flex;
+    flex-direction: column;
+    min-height: clamp(250px, 40vw, 400px);
+    padding-left: 20px;
+    padding-right: 20px;
+    border-right: $border;
+
+    // .advantage__num
+    &__num {
+
+    }
+
+    &__title {
+        margin-top: clamp(48px, 12vw, 120px);
+        margin-bottom: 24px;
+
+        font-family: Pragmatica;
+        font-weight: 400;
+        font-size: clamp(24px, 3vw, 32px);
+        line-height: 1.1;
+        letter-spacing: 0%;
+
+    }
+
+    &__text {
+        margin-top: auto;
+    }
+
+    
+}
+

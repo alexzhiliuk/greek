@@ -1,0 +1,82 @@
+@mixin smallCaps {
+    &_small-caps {
+        font-variant: small-caps;
+    }
+}
+
+.caption {
+    font-weight: 400;
+
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1;
+    letter-spacing: .05em;
+
+    &_italic {
+        font-style: Italic;
+        letter-spacing: 0;
+    }
+
+    @include smallCaps();
+
+}
+
+.lead-typo {
+    font-family: Pragmatica;
+    font-weight: 400;
+    font-size: clamp(18px, 3vw, 26px);
+    line-height: 1.1;
+    letter-spacing: 0%;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+
+}
+
+.factoid-typo {
+    font-family: Pragmatica;
+    font-weight: 400;
+    font-size: clamp(64px, 10vw, 100px);
+    line-height: .9;
+    letter-spacing: -0.02em;
+    font-variant-numeric-figure: lining-nums;
+    font-variant-numeric-spacing: proportional-nums;
+
+}
+
+.h1 {
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: .9;
+    letter-spacing: 0%;
+    vertical-align: middle;
+
+}
+
+.h2 {
+    font-weight: 400;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1;
+    letter-spacing: .05em;
+    
+    @include smallCaps();
+
+}
+
+.h3 {
+    
+    font-weight: 400;
+    font-size: clamp(20px, 3vw, 32px);
+    line-height: 1;
+
+    &_italic {
+        font-style: Italic;
+    }
+
+}
+
+.default-typo {
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.1;
+    letter-spacing: 0%;
+
+}

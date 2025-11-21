@@ -1,0 +1,155 @@
+
+.oil-grid {
+    display: grid;
+    gap: 0;
+    row-gap: 32px;
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: $breakpoint1200) {
+        grid-template-columns: 1fr;
+    }
+
+    .oil {
+        @media screen and (min-width: $breakpoint1200) {
+            &:nth-child(n + 3) {
+                margin-top: 32px;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: -32px;
+                    height: 1px;
+                    background: rgba(0, 0, 0, 1);
+                }
+            }
+            &:nth-child(2n) {
+                padding-right: 0;
+                border-right: none;
+            }
+            &:nth-child(2n + 1) {
+                padding-left: 0;
+            }
+        }
+
+        @media screen and (max-width: $breakpoint1200) {
+            &:nth-child(n + 2) {
+                margin-top: 32px;
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: -32px;
+                    height: 1px;
+                    background: rgba(0, 0, 0, 1);
+                }
+            }
+            &:nth-child(n) {
+                padding-right: 0;
+                border-right: none;
+            }
+            &:nth-child(n + 1) {
+                padding-left: 0;
+            }
+
+            &:nth-child(n + 5) {
+                display: none;
+            }
+        }
+    }
+}
+
+.oil {
+
+    display: flex;
+    gap: 24px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    border-right: $border;
+
+    @media screen and (max-width: $breakpoint768) {
+        flex-direction: column;
+    }
+    
+
+    // .oil__img
+    &__img {
+        flex: 0 1 450px;
+
+        @media screen and (max-width: $breakpoint768) {
+            flex: unset;
+            max-width: 250px;  
+            margin: 0 auto; 
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    // .oil__info
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .oil__header
+
+    &__header {
+    }
+
+    // .oil__title
+    &__title {
+        margin-top: 16px;
+        font-family: Pragmatica;
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 100%;
+        letter-spacing: 0%;
+
+    }
+
+    // .oil__body
+    &__body {
+        margin-top: clamp(48px, 6vw, 64px);
+    }
+
+    // .oil__desc
+    &__desc {
+        max-width: 370px;
+
+        @media screen and (max-width: $breakpoint1200) {
+            max-width: 100%;
+        }
+    }
+
+    // .oil__range
+    &__range {
+        display: block;
+        max-width: 212px;
+        width: 100%;
+        margin-top: 32px;
+
+        @media screen and (max-width: $breakpoint1200) {
+            max-width: 100%;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    // .oil__footer
+    &__footer {
+        margin-top: clamp(32px, 5vw, 48px);
+    }
+
+    // .oil__price
+
+    &__price {
+    }
+}

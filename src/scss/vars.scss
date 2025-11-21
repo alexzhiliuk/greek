@@ -1,6 +1,6 @@
 // Container
-$conteinerWidth: 1400 + px;
-$containerPadding: 10 + px;
+$conteinerWidth: 1872 + px;
+$containerPadding: 24 + px;
 
 // Breakpoints
 $breakpoint1440: 1439.98 + px;
@@ -16,6 +16,7 @@ $breakpoint480: 479.98 + px;
 $colorWhite: #F5F2F0;
 $colorBlack: #2C2C2C;
 $colorGray: #DBD6D5;
+$colorBrown: #A96232;
 
 // Fonts
 $fontPrimary: ArnoPro;
@@ -29,3 +30,6 @@ $burgerBreakpoint: $breakpoint1024;
 
 // Transitions
 $quickTransition: all 120ms ease-out;
+
+// Border
+$border: 1px solid rgba(0, 0, 0, 1);

@@ -1,0 +1,76 @@
+<div class="hero" id="scrollContainer">
+    <div class="hero__content">
+        <div class="hero__text container">
+            <div class="hero__title">
+                <img src="@img/hero/Logo.svg" alt="">
+                <img src="@img/hero/Logo_white.svg" class="_white" alt="">
+            </div>
+            <div class="hero__subtitle h3 h3_italic tac">by Greek Legend</div>
+        </div>
+        <div class="hero__image" id="zoomImage"></div>
+    </div>
+</div>
+
+<!-- <div style="height: 100vh;"></div> -->
+
+<script>
+    const scrollContainer = document.getElementById('scrollContainer');
+    const image = document.getElementById('zoomImage');
+    const scaleDisplay = document.getElementById('scale');
+    const heroSection = document.querySelector('.hero');
+    const textSection = document.querySelector('.hero__text');
+
+    const isMobile = window.innerWidth <= 576;
+    // Параметры масштабирования
+    const minScale = 1;
+    const maxScale = isMobile ? 1.6 : 5;
+
+    const imageRatio = image.offsetWidth / image.offsetHeight;
+    const imageScrollHeight = (window.innerWidth / imageRatio - window.outerHeight) / 2;
+
+    let scrollDistance;
+    if (isMobile) {
+        scrollDistance = window.innerHeight;
+    } else {
+        scrollDistance = window.innerHeight * 2;
+    }
+    scrollContainer.style.height = `${window.innerHeight + scrollDistance}px`;
+
+
+
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        const heroHeight = heroSection.offsetHeight;
+        
+        // Процент прокрутки секции героя (0 до 1)
+        let zoomProgress;
+        if (isMobile) {
+            zoomProgress = Math.min(scrollY / (scrollDistance * 2), 1);
+        } else {
+            zoomProgress = Math.min(scrollY / (scrollDistance / 2), 1);
+        }
+        const scrollProgress = Math.min((scrollY - (scrollDistance / 2)) / (scrollDistance / 2), 1);
+        
+        // Вычисляем текущий масштаб
+        const currentScale = minScale + (maxScale - minScale) * zoomProgress;
+
+        if ((image.offsetWidth * currentScale) >= (window.innerWidth - 20)) {
+            textSection.classList.add("_white") 
+            console.log("add class")
+        }
+        else { 
+            textSection.classList.remove("_white")
+            console.log("remove class")
+        }
+        
+        // Применяем трансформацию
+        image.style.transform = `scale(${currentScale})`;
+        image.style.borderRadius = `${18 * (1 - zoomProgress)}px`;
+
+        // console.log(scrollProgress, imageScrollHeight)
+        if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `-50% calc(-50% - ${Math.min(imageScrollHeight * scrollProgress, imageScrollHeight)}px` }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Инициализация
+</script>

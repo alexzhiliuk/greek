@@ -1,0 +1,96 @@
+.hero {
+    height: 300vh;
+    position: relative;
+
+    &__content {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        overflow: clip;
+
+        @media screen and (max-width: $breakpoint576) {
+            margin-bottom: -15vh;
+        }
+
+    }
+
+    &__text {
+        position: sticky;
+        top: 16px;
+
+        @media screen and (max-width: $breakpoint576) {
+            margin-bottom: 15vh;
+        }
+
+        &._white {
+            color: $colorWhite;
+
+            .hero__title {
+                img {
+                    display: none;
+
+                    &._white {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        img {
+            width: min(1080px, 100%);
+
+            &._white {
+                display: none;
+            }
+        }
+    }
+
+    &__subtitle {
+        margin: 24px 0;
+    }
+    
+    &__image {
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 20vw;
+        aspect-ratio: 0.75;
+        height: auto;
+        transform-origin: center;
+        transition: transform 0.1s ease-out;
+        border-radius: 18px;
+        z-index: -1;
+
+        background: url(../../img/hero/hero.png) center center / cover no-repeat;
+
+        @media screen and (max-width: $breakpoint576) {
+            width: 70vw;
+            // bottom: 0;
+            // top: unset;
+            // translate: -50% 0;
+        }
+    
+    }
+}
+
+
+.zoom-image {
+    width: 20vw;
+    height: auto;
+    transform-origin: center;
+    transition: transform 0.1s ease-out;
+    border-radius: 18px;
+
+    @media screen and (max-width: $breakpoint576) {
+        width: 70vw;
+    }
+}
