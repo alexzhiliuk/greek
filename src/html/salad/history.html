@@ -4,21 +4,31 @@
             <h2 class="section__title h2 h2_small-caps lower">история greek legend</h2>
         </div>
         <div class="section__body">
-            <div class="history">
+            <div class="history" data-tabs-container>
                 <div class="history__left top-border">
                     <div class="history__header">
                         <ul class="history__triggers caption caption_small-caps lower">
-                            <li class="_active">(1) подход</li>
-                            <li>(2) миссия и идея бренда</li>
-                            <li>(3) культура масла</li>
+                            <li class="_active" data-tab-trigger data-tab-id="1" >подход</li>
+                            <li data-tab-trigger data-tab-id="2">миссия и идея бренда</li>
+                            <li data-tab-trigger data-tab-id="3">культура масла</li>
                         </ul>
-                        <div class="history__desc default-typo">
+                        <div class="history__desc default-typo" data-tab-target data-tab-id="1">
                             Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
                             <br> <br>
                             <a href="">Читать подробнее</a>
                         </div>
+                        <div class="history__desc default-typo _hidden" data-tab-target data-tab-id="2">
+                            2
+                            <br> <br>
+                            <a href="">Читать подробнее</a>
+                        </div>
+                        <div class="history__desc default-typo _hidden" data-tab-target data-tab-id="3">
+                            3
+                            <br> <br>
+                            <a href="">Читать подробнее</a>
+                        </div>
                     </div>
-                    <div class="history__body">
+                    <div class="history__body" data-tab-target data-tab-id="1">
                         <blockquote class="history__blockquote tac h1">
                             <p>
                                 «Настоящая Греция на вашей кухне!»
@@ -37,11 +47,138 @@
                             </div>
                         </div>
                     </div>
+                    <div class="history__body _hidden" data-tab-target data-tab-id="2">
+                        <blockquote class="history__blockquote tac h1">
+                            <p>
+                                «Настоящая Греция на вашей кухне!» 2
+                            </p>
+                        </blockquote>
+                        <div class="history-author">
+                            <div class="history-author__img">
+                                <img src="@img/history/quote.png" alt="">
+                            </div>
+                            <p class="default-typo">
+                                Chatzigiorgis Georgios <br>
+                                <span class="caption caption_italic">CEO Greek Legend</span>
+                            </p>
+                            <div class="history-author__sign">
+                                <img src="@img/history/sign.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="history__left-mb">
+                    <div class="history__triggers">
+                        <div class="history-acc _active" data-tab-trigger data-tab-id="1" >
+                            <div class="history-acc__header caption caption_small-caps lower">подход</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="1">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="@img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="@img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-acc" data-tab-trigger data-tab-id="2">
+                            <div class="history-acc__header caption caption_small-caps lower">миссия и идея бренда</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="2">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="@img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="@img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <di class="history-acc"v data-tab-trigger data-tab-id="3">
+                            <div class="history-acc__header caption caption_small-caps lower">культура масла</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="3">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="@img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="@img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </di>
+                    </div>
                 </div>
                 <div class="history__right">
-                    <img src="@img/history/img.png" alt="">
+                    <div class="swiper" id="historySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="@img/history/img.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="@img/history/img.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="@img/history/img.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination" id="historySwiperPagination"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+
+</script>

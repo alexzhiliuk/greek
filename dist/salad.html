@@ -11,20 +11,20 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&_v=20251121185408" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&_v=20251123131048" rel="stylesheet">
     
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.min.css?_v=20251121185408">
+    <link rel="stylesheet" href="css/style.min.css?_v=20251123131048">
 
     <link
       rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css?_v=20251121185408"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css?_v=20251123131048"
     />
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js?_v=20251121185408"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?_v=20251121185408"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js?_v=20251123131048"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?_v=20251123131048"></script>
 
     <title>Карта лояльности</title>
 </head>
@@ -326,21 +326,31 @@
             <h2 class="section__title h2 h2_small-caps lower">история greek legend</h2>
         </div>
         <div class="section__body">
-            <div class="history">
+            <div class="history" data-tabs-container>
                 <div class="history__left top-border">
                     <div class="history__header">
                         <ul class="history__triggers caption caption_small-caps lower">
-                            <li class="_active">(1) подход</li>
-                            <li>(2) миссия и идея бренда</li>
-                            <li>(3) культура масла</li>
+                            <li class="_active" data-tab-trigger data-tab-id="1" >подход</li>
+                            <li data-tab-trigger data-tab-id="2">миссия и идея бренда</li>
+                            <li data-tab-trigger data-tab-id="3">культура масла</li>
                         </ul>
-                        <div class="history__desc default-typo">
+                        <div class="history__desc default-typo" data-tab-target data-tab-id="1">
                             Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
                             <br> <br>
                             <a href="">Читать подробнее</a>
                         </div>
+                        <div class="history__desc default-typo _hidden" data-tab-target data-tab-id="2">
+                            2
+                            <br> <br>
+                            <a href="">Читать подробнее</a>
+                        </div>
+                        <div class="history__desc default-typo _hidden" data-tab-target data-tab-id="3">
+                            3
+                            <br> <br>
+                            <a href="">Читать подробнее</a>
+                        </div>
                     </div>
-                    <div class="history__body">
+                    <div class="history__body" data-tab-target data-tab-id="1">
                         <blockquote class="history__blockquote tac h1">
                             <p>
                                 «Настоящая Греция на вашей кухне!»
@@ -359,20 +369,273 @@
                             </div>
                         </div>
                     </div>
+                    <div class="history__body _hidden" data-tab-target data-tab-id="2">
+                        <blockquote class="history__blockquote tac h1">
+                            <p>
+                                «Настоящая Греция на вашей кухне!» 2
+                            </p>
+                        </blockquote>
+                        <div class="history-author">
+                            <div class="history-author__img">
+                                <img src="img/history/quote.png" alt="">
+                            </div>
+                            <p class="default-typo">
+                                Chatzigiorgis Georgios <br>
+                                <span class="caption caption_italic">CEO Greek Legend</span>
+                            </p>
+                            <div class="history-author__sign">
+                                <img src="img/history/sign.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="history__left-mb">
+                    <div class="history__triggers">
+                        <div class="history-acc _active" data-tab-trigger data-tab-id="1" >
+                            <div class="history-acc__header caption caption_small-caps lower">подход</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="1">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-acc" data-tab-trigger data-tab-id="2">
+                            <div class="history-acc__header caption caption_small-caps lower">миссия и идея бренда</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="2">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <di class="history-acc"v data-tab-trigger data-tab-id="3">
+                            <div class="history-acc__header caption caption_small-caps lower">культура масла</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="3">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </di>
+                    </div>
                 </div>
                 <div class="history__right">
-                    <img src="img/history/img.png" alt="">
+                    <div class="swiper" id="historySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/history/img.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/history/img.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/history/img.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination" id="historySwiperPagination"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+
+</script>
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__body">
+            <div class="gallery draggable">
+                <!-- <div class="swiper" id="gallerySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/gallery/m1.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/gallery/card.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/gallery/big.png" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/gallery/m2.png" alt="">
+                        </div>
+                    </div>
+                </div> -->
+                
+                <img src="img/gallery/m1.png" alt="">
+                
+                
+                <img src="img/gallery/card.png" alt="">
+                
+                
+                <img src="img/gallery/big.png" alt="">
+                
+                
+                <img src="img/gallery/m2.png" alt="">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+                <section class="section" id="programm">
+    <div class="section__container container">
+        <div class="section__header section__header_row">
+            <h2 class="section__title h2 h2_small-caps lower">станьте участником программы</h2>
+        </div>
+        <div class="section__body top-border">
+            <div class="programm">
+                <form action="" class="programm__form">
+                    <div class="programm__text lead-typo">
+                        Небольшой текст-описание о том, что случится далее, когда человек оставит заявку. Тут должна быть какая-то дорожная карта.
+                    </div>
+                    <div class="programm__fields">
+                        <div class="input-block">
+                            <label for="">Имя*</label>
+                            <div class="input-wrapper">
+                                <input type="tel" class="input" placeholder="Имя" required>
+                            </div>
+                        </div>
+                        <div class="input-block">
+                            <label for="">Телефон*</label>
+                            <div class="input-wrapper">
+                                <input type="tel" class="input" placeholder="+7 902 475–21–88" required data-tel-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxes">
+                        <label  class="checkbox-block">
+                            <input type="checkbox" required>
+                            Я согласен с политикой обработки персональных данных
+                        </label>
+                    </div>
+                    <button type="submit" class="btn caption caption_small-caps lower programm__submit">Оставить заявку</button>
+                    <div class="lead-typo success-color">
+                        Форма успешно отправлена
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
             </main>
+            <div class="cta-fixed">
+    <div class="cta-fixed__body">
+        <img src="img/cta-fixed/card.png" alt="">
+    </div>
+    <a href="#programm" class="cta-fixed__btn btn default-typo default-typo_small-caps lower">оставить заявку</a>
+</div>
+
+<script>
+    $(document).ready(function () { 
+        const windowHeight = window.innerHeight;
+        const $programmSection = $("#programm")
+        $(window).scroll(function(event){
+            var st = $(this).scrollTop();
+            if (st > windowHeight * 3){
+                $(".cta-fixed").addClass("_min")
+            } else {
+                $(".cta-fixed").removeClass("_min")
+            }
+    
+        });
+
+        // Функция для скрытия/показа CTA блока
+        function toggleCTA() {
+            const programmBlock = document.querySelector('#programm');
+            const ctaFixed = document.querySelector('.cta-fixed');
+            
+            if (!programmBlock || !ctaFixed) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Блок programm виден на экране
+                        ctaFixed.style.display = 'none';
+                    } else {
+                        // Блок programm не виден
+                        ctaFixed.style.display = 'block';
+                    }
+                });
+            }, {
+                threshold: 0.1 // Срабатывает когда 10% блока видно
+            });
+            
+            observer.observe(programmBlock);
+        }
+
+        toggleCTA()
+    })
+</script>
     
             
         </div>
 
-        <script src="js/app.min.js?_v=20251121185408"></script>
+        <script src="js/app.min.js?_v=20251123131048"></script>
 
     </body>
 </html>

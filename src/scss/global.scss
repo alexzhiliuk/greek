@@ -1,4 +1,7 @@
 /* -------- GLOBAL -------- */
+:root {
+    --btn-radius: clamp(10px, 2vw, 18px);
+}
 * {
     padding: 0;
     margin: 0;
@@ -42,7 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    background-color: $colorWhite;
 }
 
 main {
@@ -291,6 +294,7 @@ $width: min(68%, 500px);
     width: 100%;
     padding: 12px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background: none;
 
     &:disabled {
         color: rgba($color: $colorBlack, $alpha: .5);
@@ -416,5 +420,23 @@ $width: min(68%, 500px);
         text-underline-offset: 5px;
     }
 
+}
+
+
+.btn {
+    height: clamp(48px, 6vw, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: var(--btn-radius);
+    background: $colorBlack;
+    color: $colorWhite;
+    padding: 16px;
+}
+
+.success-color {
+    color: #17a63f;
 }
 

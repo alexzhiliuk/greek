@@ -1,0 +1,48 @@
+<div class="cta-fixed">
+    <div class="cta-fixed__body">
+        <img src="@img/cta-fixed/card.png" alt="">
+    </div>
+    <a href="#programm" class="cta-fixed__btn btn default-typo default-typo_small-caps lower">оставить заявку</a>
+</div>
+
+<script>
+    $(document).ready(function () { 
+        const windowHeight = window.innerHeight;
+        const $programmSection = $("#programm")
+        $(window).scroll(function(event){
+            var st = $(this).scrollTop();
+            if (st > windowHeight * 3){
+                $(".cta-fixed").addClass("_min")
+            } else {
+                $(".cta-fixed").removeClass("_min")
+            }
+    
+        });
+
+        // Функция для скрытия/показа CTA блока
+        function toggleCTA() {
+            const programmBlock = document.querySelector('#programm');
+            const ctaFixed = document.querySelector('.cta-fixed');
+            
+            if (!programmBlock || !ctaFixed) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Блок programm виден на экране
+                        ctaFixed.style.display = 'none';
+                    } else {
+                        // Блок programm не виден
+                        ctaFixed.style.display = 'block';
+                    }
+                });
+            }, {
+                threshold: 0.1 // Срабатывает когда 10% блока видно
+            });
+            
+            observer.observe(programmBlock);
+        }
+
+        toggleCTA()
+    })
+</script>

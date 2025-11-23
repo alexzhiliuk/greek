@@ -1,0 +1,54 @@
+.programm {
+
+    display: flex;
+    justify-content: flex-end;
+
+    // .programm__form
+    &__form {
+        flex: 0 1 924px;
+
+        & > * {
+            margin-top: 20px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+
+    // .programm__text
+    &__text {
+        margin-bottom: clamp(32px, 10vw, 128px);
+    }
+
+    &__fields {
+        @include flexColumns(2, 24px);
+        margin-bottom: clamp(32px, 6vw, 64px);
+
+        @media screen and (max-width: $breakpoint768) {
+            @include flexColumns(1, 24px);
+        }
+    }
+
+    &__submit {
+        margin-top: 20px;
+        width: 100%;
+
+        @media screen and (max-width: $breakpoint768) {
+            @include width100vw;
+            &.btn {
+                border-radius: 0;
+            }
+        }
+    }
+}
+.input-block {
+}
+.input-wrapper {
+}
+.input {
+}
+.checkboxes {
+}
+.checkbox-block {
+}

@@ -8,11 +8,27 @@
         flex-direction: column-reverse;
     }
 
+    [data-tab-target] {
+        &._hidden {
+            display: none;
+        }
+    }
+
     // .history__left
     &__left {
         display: flex;
         flex-direction: column;
         padding-bottom: 24px;
+
+        @media screen and (max-width: $breakpoint1200) {
+            display: none;
+        }
+    }
+
+    &__left-mb {
+        @media screen and (min-width: $breakpoint1200) {
+            display: none;
+        }
     }
 
     &__header {
@@ -25,9 +41,19 @@
 
     &__triggers {
         flex-shrink: 0;
+        cursor: pointer;
 
-        ._active {
-            color: $colorBrown;
+        counter-reset: history;
+
+        li {
+            counter-increment: history;
+            &::before {
+                content: "(" counter(history)  ")";
+            }
+
+            &._active {
+                color: $colorBrown;
+            }
         }
     }
 
@@ -39,6 +65,10 @@
             text-decoration-style: solid;
             text-underline-offset: .2em;
             text-decoration-thickness: 5%;
+
+            &:hover {
+                color: $colorBrown;
+            }
 
         }
     }
@@ -69,6 +99,7 @@
 
         @media screen and (max-width: $breakpoint1200) {
             max-width: 600px;
+            width: 100%;
             margin: 0 auto;
         }
         
@@ -78,8 +109,55 @@
             object-fit: cover;
             display: block;
         }
+
+        .swiper-pagination {
+            justify-content: center;
+        }
+        .swiper-pagination-bullet {
+            background: $colorWhite;
+            opacity: .4;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
     }
 }
+
+.history-acc {
+
+    border-bottom: $border;
+
+    &._active {
+        .history-acc {
+            &__header  {
+                color: $colorBrown;
+            }
+            &__body {
+                display: flex;
+            }
+        }
+    }
+
+    &:last-child {
+        .history-acc__header {
+            border-bottom: none;
+        } 
+    }
+
+    // .history-acc__header
+    &__header {
+        padding: 20px 0;
+    }
+
+    // .history-acc__body
+    &__body {
+        display: none;
+        flex-direction: column;
+        gap: 48px;
+        padding-bottom: 20px;
+    }
+}
+
 
 
 
@@ -89,9 +167,15 @@
     gap: 16px;
     position: relative;
 
+    @media screen and (max-width: $breakpoint1200) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
     // .history-author__img
     &__img {
-        width: 108px;
+        width: clamp(82px, 10vw, 108px);
         border-radius: 10px;
         overflow: hidden;
 
@@ -110,6 +194,13 @@
 
         img {
             width: 100%;
+        }
+
+        @media screen and (max-width: $breakpoint1200) {
+            position: relative;
+            top: -60px;
+            margin-bottom: -60px;
+            right: unset;
         }
     }
 }
