@@ -1132,7 +1132,7 @@ button {
   }
 }
 .oil__img {
-  flex: 0 1 450px;
+  flex: 0 0 clamp(250px, 25vw, 450px);
 }
 @media screen and (max-width: 767.98px) {
   .oil__img {
@@ -1227,6 +1227,9 @@ button {
 @media screen and (max-width: 991.98px) {
   .stages__slider {
     width: 100%;
+    background: #DBD6D5;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 }
 .stages__slider .swiper-pagination {
@@ -1422,18 +1425,33 @@ button {
   }
 }
 
+@keyframes spin {
+  from {
+    translate: 0%;
+  }
+  to {
+    translate: calc(-100% - 30px);
+  }
+}
 .gallery {
   width: 100vw;
   margin-left: calc(-1 * (100vw - 100%) / 2);
   margin-right: calc(-1 * (100vw - 100%) / 2);
   display: flex;
-  align-items: flex-start;
   gap: 30px;
-  overflow-x: auto;
+  overflow-x: clip;
   padding: 0 24px;
   scrollbar-width: none;
 }
+.gallery__inner {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  animation: spin 10s infinite linear;
+}
 .gallery img {
+  flex-shrink: 0;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -1457,8 +1475,12 @@ button {
 .gallery .swiper {
   padding: 0 24px !important;
 }
+.gallery .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
 .gallery .swiper-slide {
   width: auto !important;
+  flex-shrink: 0;
 }
 .gallery .swiper-slide img {
   width: auto;

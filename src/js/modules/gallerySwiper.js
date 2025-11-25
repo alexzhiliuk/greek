@@ -4,15 +4,14 @@ const swiperModules = [Autoplay, Navigation, Pagination, EffectFade];
 
 const historySwiper = new Swiper('#gallerySwiper', {
     modules: swiperModules,
-    // effect: 'fade',
-    // fadeEffect: {
-    //     crossFade: true
-    // },
-    freeMode: true,
+    loop: true,
+    autoplay: {
+        delay: 1,
+        disableOnInteraction: false,
+    },
+    speed: 4000,
     slidesPerView: "auto",
     spaceBetween: 30,
-    // pagination: {
-    //     el: '#',
-    // },
+    allowTouchMove: false, // Для draggable
     
 })

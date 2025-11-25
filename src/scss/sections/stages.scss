@@ -48,6 +48,9 @@
 
         @media screen and (max-width: $breakpoint992) {
             width: 100%;
+            background: #DBD6D5;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
         }
 
         .swiper {

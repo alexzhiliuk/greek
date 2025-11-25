@@ -78,7 +78,7 @@
 
     // .oil__img
     &__img {
-        flex: 0 1 450px;
+        flex: 0 0 clamp(250px, 25vw, 450px);
 
         @media screen and (max-width: $breakpoint768) {
             flex: unset;
