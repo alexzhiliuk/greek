@@ -852,7 +852,7 @@ button {
 .hero__text {
   margin-top: 16px;
   position: sticky;
-  top: -97vh;
+  top: -98vh;
 }
 @media screen and (max-width: 575.98px) {
   .hero__text {
