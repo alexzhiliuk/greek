@@ -50,66 +50,101 @@
 <!-- <div style="height: 100vh;"></div> -->
 
 <script>
-    const scrollContainer = document.getElementById('scrollContainer');
-    const image = document.getElementById('zoomImage');
-    const scaleDisplay = document.getElementById('scale');
-    const heroSection = document.querySelector('.hero');
-    const textSection = document.querySelector('.hero__text');
+	const scrollContainer = document.getElementById('scrollContainer');
+	const image = document.getElementById('zoomImage');
+	const textSection = document.querySelector('.hero__text');
+	const heroSection = document.querySelector('.hero');
 
-    const isMobile = window.innerWidth <= 576;
-    // Параметры масштабирования
-    const minScale = 1;
-    const maxScale = isMobile ? 1.6 : 5;
+	const isMobile = window.innerWidth <= 576;
 
-    const imageRatio = image.offsetWidth / image.offsetHeight;
-    const imageScrollHeight = (window.innerWidth / imageRatio - window.outerHeight) / 2;
+	const minScale = 1;
+	const maxScale = isMobile ? 1.6 : 5;
 
-    let scrollDistance;
-    if (isMobile) {
-        scrollDistance = window.innerHeight;
-    } else {
-        scrollDistance = window.innerHeight * 2;
-    }
-    scrollContainer.style.height = `${window.innerHeight + scrollDistance}px`;
+	let scrollDistance = isMobile
+		? window.innerHeight
+		: window.innerHeight * 2;
 
+	// Высота контейнера
+	if (isMobile) {
+		scrollContainer.style.height = window.innerHeight + scrollDistance + "px";
+	} else {
+		scrollContainer.style.height =
+			window.innerHeight + scrollDistance - image.offsetHeight * 2 + "px";
+	}
 
+	// Для smooth анимации
+	let lastScrollY = 0;
+	let ticking = false;
 
-    function handleScroll() {
-        const scrollY = window.scrollY;
-        const heroHeight = heroSection.offsetHeight;
-        
-        // Процент прокрутки секции героя (0 до 1)
-        let zoomProgress;
-        if (isMobile) {
-            zoomProgress = Math.min(scrollY / (scrollDistance * 2), 1);
-        } else {
-            zoomProgress = Math.min(scrollY / (scrollDistance / 2), 1);
-        }
-        const scrollProgress = Math.min((scrollY - (scrollDistance / 2)) / (scrollDistance / 2), 1);
-        
-        // Вычисляем текущий масштаб
-        const currentScale = minScale + (maxScale - minScale) * zoomProgress;
+	function handleScroll() {
+		const scrollY = lastScrollY;
 
-        if ((image.offsetWidth * currentScale) >= (window.innerWidth - 20)) {
-            textSection.classList.add("_white") 
-            console.log("add class")
-        }
-        else { 
-            textSection.classList.remove("_white")
-            console.log("remove class")
-        }
-        
-        // Применяем трансформацию
-        image.style.transform = `scale(${currentScale})`;
-        image.style.borderRadius = `${18 * (1 - zoomProgress)}px`;
+		// ===== СБРОС СОСТОЯНИЯ В ВЕРХНЕЙ ТОЧКЕ =====
+		if (scrollY <= 1) {
+			image.style.transform = `translate(-50%, -50%) scale(1)`;
+			image.style.borderRadius = `18px`;
+			textSection.classList.remove("_white");
+			return;
+		}
 
-        // console.log(scrollProgress, imageScrollHeight)
-        if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `-50% calc(-50% - ${Math.min(imageScrollHeight * scrollProgress, imageScrollHeight)}px` }
-    }
+		// ===== ПРОГРЕСС МАСШТАБИРОВАНИЯ =====
+		let zoomProgress = isMobile
+			? Math.min(scrollY / (scrollDistance * 2), 1)
+			: Math.min(scrollY / (scrollDistance / 2), 1);
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Инициализация
+		// Прогресс вертикального сдвига
+		let shiftProgress = Math.min(
+			(scrollY - scrollDistance / 2) / (scrollDistance / 2),
+			1
+		);
+
+		const currentScale = minScale + (maxScale - minScale) * zoomProgress;
+
+		// WHITE TEXT SWITCH
+		if (image.offsetWidth * currentScale >= window.innerWidth - 20) {
+			textSection.classList.add("_white");
+		} else {
+			textSection.classList.remove("_white");
+		}
+
+		// ===== СМЕЩЕНИЕ ИЗОБРАЖЕНИЯ =====
+		let offsetY = 0;
+		if (!isMobile && shiftProgress > 0) {
+			const imageRatio = image.offsetWidth / image.offsetHeight;
+			const imageScrollHeight =
+				(window.innerWidth / imageRatio - window.outerHeight) / 2;
+
+			offsetY = Math.min(
+				imageScrollHeight * shiftProgress,
+				imageScrollHeight
+			);
+		}
+
+		// ===== ЕДИНЫЙ TRANSFORM (GPU-friendly) =====
+		image.style.transform = `
+			translate(-50%, calc(-50% - ${offsetY}px))
+			scale(${currentScale})
+		`;
+
+		image.style.borderRadius = `${18 * (1 - zoomProgress)}px`;
+	}
+
+	// ===== SCROLL СТАБИЛИЗАЦИЯ ЧЕРЕЗ requestAnimationFrame =====
+	window.addEventListener("scroll", () => {
+		lastScrollY = window.scrollY;
+
+		if (!ticking) {
+			ticking = true;
+			requestAnimationFrame(() => {
+				handleScroll();
+				ticking = false;
+			});
+		}
+	});
+
+	handleScroll(); // старт
 </script>
+
                 <section class="section">
     <div class="section__container container">
         <div class="section__header jcc tac">
