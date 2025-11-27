@@ -64,7 +64,6 @@
 		? window.innerHeight
 		: window.innerHeight * 2;
 
-	// Высота контейнера
 	if (isMobile) {
 		scrollContainer.style.height = window.innerHeight + scrollDistance + "px";
 	} else {
@@ -72,27 +71,25 @@
 			window.innerHeight + scrollDistance - image.offsetHeight * 2 + "px";
 	}
 
-	// Для smooth анимации
 	let lastScrollY = 0;
 	let ticking = false;
 
 	function handleScroll() {
 		const scrollY = lastScrollY;
 
-		// ===== СБРОС СОСТОЯНИЯ В ВЕРХНЕЙ ТОЧКЕ =====
+		// ===== RESET =====
 		if (scrollY <= 1) {
-			image.style.transform = `translate(-50%, -50%) scale(1)`;
+			image.style.transform = `translate3d(-50%, -50%, 0) scale(1)`;
 			image.style.borderRadius = `18px`;
 			textSection.classList.remove("_white");
 			return;
 		}
 
-		// ===== ПРОГРЕСС МАСШТАБИРОВАНИЯ =====
+		// ===== ZOOM PROGRESS =====
 		let zoomProgress = isMobile
 			? Math.min(scrollY / (scrollDistance * 2), 1)
 			: Math.min(scrollY / (scrollDistance / 2), 1);
 
-		// Прогресс вертикального сдвига
 		let shiftProgress = Math.min(
 			(scrollY - scrollDistance / 2) / (scrollDistance / 2),
 			1
@@ -100,14 +97,14 @@
 
 		const currentScale = minScale + (maxScale - minScale) * zoomProgress;
 
-		// WHITE TEXT SWITCH
+		// ===== TEXT COLOR SWITCH =====
 		if (image.offsetWidth * currentScale >= window.innerWidth - 20) {
 			textSection.classList.add("_white");
 		} else {
 			textSection.classList.remove("_white");
 		}
 
-		// ===== СМЕЩЕНИЕ ИЗОБРАЖЕНИЯ =====
+		// ===== Y OFFSET =====
 		let offsetY = 0;
 		if (!isMobile && shiftProgress > 0) {
 			const imageRatio = image.offsetWidth / image.offsetHeight;
@@ -120,16 +117,16 @@
 			);
 		}
 
-		// ===== ЕДИНЫЙ TRANSFORM (GPU-friendly) =====
+		// ===== FINAL GPU TRANSFORM =====
 		image.style.transform = `
-			translate(-50%, calc(-50% - ${offsetY}px))
+			translate3d(-50%, calc(-50% - ${offsetY}px), 0)
 			scale(${currentScale})
 		`;
 
 		image.style.borderRadius = `${18 * (1 - zoomProgress)}px`;
 	}
 
-	// ===== SCROLL СТАБИЛИЗАЦИЯ ЧЕРЕЗ requestAnimationFrame =====
+	// ===== RAF SCROLL =====
 	window.addEventListener("scroll", () => {
 		lastScrollY = window.scrollY;
 
@@ -142,8 +139,9 @@
 		}
 	});
 
-	handleScroll(); // старт
+	handleScroll();
 </script>
+
 
                 <section class="section">
     <div class="section__container container">
