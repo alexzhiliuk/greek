@@ -881,7 +881,7 @@ button {
 .hero__subtitle {
   margin: 24px 0;
 }
-.hero__image {
+/* .hero__image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -894,7 +894,24 @@ button {
   border-radius: 18px;
   z-index: -1;
   background: url(../img/hero/hero.png) center center/cover no-repeat;
+} */
+.hero__image {
+  position: relative;
+  top: 0;
+  /* top: 0%;
+  left: 50%;
+  transform: translate(-50%); */
+  width: 20vw;
+  /* left: 50%; */
+  aspect-ratio: 0.75;
+  height: auto;
+  transform-origin: center;
+  transition: transform 0.1s ease-out;
+  border-radius: 18px;
+  z-index: -1;
+  background: url(../img/hero/hero.png) center center/cover no-repeat;
 }
+
 @media screen and (max-width: 575.98px) {
   .hero__image {
     width: 70vw;
