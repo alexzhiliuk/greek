@@ -369,7 +369,7 @@ template {
 *,
 *::after,
 *::before {
-  /* transition: all 120ms ease-out; */
+  transition: all 120ms ease-out;
 }
 
 .container {
@@ -833,16 +833,17 @@ button {
 }
 
 .hero {
-  height: 100vh;
+  height: 300vh;
   position: relative;
 }
 .hero__content {
+  position: sticky;
   top: 0;
   height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: relative;
+  overflow: clip;
 }
 @media screen and (max-width: 575.98px) {
   .hero__content {
@@ -850,9 +851,8 @@ button {
   }
 }
 .hero__text {
-  margin-top: 16px;
   position: sticky;
-  top: -98vh;
+  top: 16px;
 }
 @media screen and (max-width: 575.98px) {
   .hero__text {
@@ -882,23 +882,18 @@ button {
   margin: 24px 0;
 }
 .hero__image {
-  /* position: absolute; */
-  /* top: 50%;
-  left: 50%;.
-  translate: -50% -50%; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
   width: 20vw;
   aspect-ratio: 0.75;
   height: auto;
-  transform-origin: center 80%;
+  transform-origin: center;
   transition: transform 0.1s ease-out;
   border-radius: 18px;
   z-index: -1;
   background: url(../img/hero/hero.png) center center/cover no-repeat;
-}
-@media (max-width: 998px) {
-  .hero__image {
-    transform-origin: center 90%;
-  }
 }
 @media screen and (max-width: 575.98px) {
   .hero__image {
@@ -1793,23 +1788,4 @@ button {
 .swiper-pagination {
   display: flex;
   gap: 6px;
-}
-
-body._lock {
-  /* overflow: hidden; */
-}
-
-@media (max-width: 998px) {
-  .hero {
-    /* overflow: hidden; */
-  }
-}
-
-.hero {
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.hero._vis {
-  opacity: 1;
 }
