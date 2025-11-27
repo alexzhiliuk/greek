@@ -33,7 +33,7 @@
 
 			<main>
 
-				<div class="hero">
+				<div class="hero" id="scrollContainer">
 					<div class="hero__content">
 						<div class="hero__text container">
 							<div class="hero__title">
@@ -42,13 +42,11 @@
 							</div>
 							<div class="hero__subtitle h3 h3_italic tac">by Greek Legend</div>
 						</div>
-
 						<div class="hero__image" id="zoomImage"></div>
-
 					</div>
 				</div>
 
-				<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+				<!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 				<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 				<script>
@@ -81,10 +79,10 @@ window.addEventListener("load", () => {
   ScrollTrigger.refresh();
  document.querySelector('.hero').classList.add('_vis')
 });
-</script>
+</script> -->
 				<!-- <div style="height: 100vh;"></div> -->
 
-				<!-- <script>
+				<script>
     const scrollContainer = document.getElementById('scrollContainer');
     const image = document.getElementById('zoomImage');
     const scaleDisplay = document.getElementById('scale');
@@ -111,6 +109,14 @@ window.addEventListener("load", () => {
 
     function handleScroll() {
         const scrollY = window.scrollY;
+
+		if (scrollY <= 1) {
+    image.style.transform = `scale(1)`;
+    image.style.borderRadius = `18px`;
+    image.style.translate = `-50% -50%`;
+    textSection.classList.remove("_white");
+    return;
+}
         const heroHeight = heroSection.offsetHeight;
         
         // Процент прокрутки секции героя (0 до 1)
@@ -144,7 +150,7 @@ window.addEventListener("load", () => {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Инициализация
-</script> -->
+</script>
 
 				<section class="section">
 					<div class="section__container container">
