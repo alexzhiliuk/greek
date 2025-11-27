@@ -100,10 +100,12 @@ window.addEventListener("load", () => {
     let scrollDistance;
     if (isMobile) {
         scrollDistance = window.innerHeight;
+		 scrollContainer.style.height = `${window.innerHeight + scrollDistance  }px`;
     } else {
         scrollDistance = window.innerHeight * 2;
+		 scrollContainer.style.height = `${window.innerHeight + scrollDistance - (image.offsetHeight * 2) }px`;
     }
-    scrollContainer.style.height = `${window.innerHeight + scrollDistance}px`;
+   
 
 
 
@@ -113,7 +115,7 @@ window.addEventListener("load", () => {
 		if (scrollY <= 1) {
     image.style.transform = `scale(1)`;
     image.style.borderRadius = `18px`;
-    image.style.translate = `-50% -50%`;
+    image.style.translate = `0% 0%`;
     textSection.classList.remove("_white");
     return;
 }
@@ -145,7 +147,8 @@ window.addEventListener("load", () => {
         image.style.borderRadius = `${18 * (1 - zoomProgress)}px`;
 
         // console.log(scrollProgress, imageScrollHeight)
-        if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `-50% calc(-50% - ${Math.min(imageScrollHeight * scrollProgress, imageScrollHeight)}px` }
+        // if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `-50% calc(-50% - ${Math.min(imageScrollHeight * scrollProgress, imageScrollHeight)}px` }
+		 if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `0% calc(-0px` }
     }
 
     window.addEventListener('scroll', handleScroll);
