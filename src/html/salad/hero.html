@@ -10,7 +10,40 @@
         <div class="hero__image" id="zoomImage"></div>
     </div>
 </div>
+<!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
+				<script>
+window.addEventListener("load", () => {
+  document.body.classList.remove("_lock");
+});
+
+	gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".hero__image", {
+  scale: 5,              // до какого значения — можно 1.2 / 1.5
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".hero",
+    start: "top top",
+    end: "bottom top",   // длительность скролла
+    scrub: true,
+    pin: true,   
+	onLeave: () => {
+      document.querySelector(".hero__text").classList.add("_white");
+    },
+
+    // когда пользователь скроллит обратно вверх → убираем класс
+    onEnterBack: () => {
+      document.querySelector(".hero__text").classList.remove("_white");
+    }        // фиксация секции
+  }
+});
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
+ document.querySelector('.hero').classList.add('_vis')
+});
+</script> -->
 <!-- <div style="height: 100vh;"></div> -->
 
 <script>
@@ -30,18 +63,28 @@
 
     let scrollDistance;
     if (isMobile) {
-        scrollDistance = window.innerHeight;
+        scrollDistance = window.innerHeight / 10;
+        scrollContainer.style.height = `${window.innerHeight + scrollDistance}px`;
     } else {
         scrollDistance = window.innerHeight * 2;
+        scrollContainer.style.height = `${window.innerHeight + scrollDistance - (image.offsetHeight * 2)}px`;
     }
-    scrollContainer.style.height = `${window.innerHeight + scrollDistance}px`;
+
 
 
 
     function handleScroll() {
         const scrollY = window.scrollY;
+
+        if (scrollY <= 1) {
+            image.style.transform = `scale(1)`;
+            image.style.borderRadius = `18px`;
+            image.style.translate = `0% 0%`;
+            textSection.classList.remove("_white");
+            return;
+        }
         const heroHeight = heroSection.offsetHeight;
-        
+
         // Процент прокрутки секции героя (0 до 1)
         let zoomProgress;
         if (isMobile) {
@@ -50,25 +93,26 @@
             zoomProgress = Math.min(scrollY / (scrollDistance / 2), 1);
         }
         const scrollProgress = Math.min((scrollY - (scrollDistance / 2)) / (scrollDistance / 2), 1);
-        
+
         // Вычисляем текущий масштаб
         const currentScale = minScale + (maxScale - minScale) * zoomProgress;
 
         if ((image.offsetWidth * currentScale) >= (window.innerWidth - 20)) {
-            textSection.classList.add("_white") 
+            textSection.classList.add("_white")
             console.log("add class")
         }
-        else { 
+        else {
             textSection.classList.remove("_white")
             console.log("remove class")
         }
-        
+
         // Применяем трансформацию
         image.style.transform = `scale(${currentScale})`;
         image.style.borderRadius = `${18 * (1 - zoomProgress)}px`;
 
         // console.log(scrollProgress, imageScrollHeight)
-        if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `-50% calc(-50% - ${Math.min(imageScrollHeight * scrollProgress, imageScrollHeight)}px` }
+        // if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `-50% calc(-50% - ${Math.min(imageScrollHeight * scrollProgress, imageScrollHeight)}px` }
+        if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `0% calc(-0px` }
     }
 
     window.addEventListener('scroll', handleScroll);

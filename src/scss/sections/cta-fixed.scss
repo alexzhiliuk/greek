@@ -17,6 +17,7 @@
 
     &._min {
         background: none;
+        pointer-events: none;
         .cta-fixed__body {
             transform: scaleY(0);
         }
@@ -24,6 +25,7 @@
         .btn {
             border-top-left-radius: var(--btn-radius);
             border-top-right-radius: var(--btn-radius);
+            pointer-events: all;
         }
     }
 

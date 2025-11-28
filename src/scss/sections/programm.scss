@@ -7,6 +7,16 @@
     &__form {
         flex: 0 1 924px;
 
+        @media (max-width: 1020px) {
+            
+            flex: 0 0 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+        }
+
         & > * {
             margin-top: 20px;
 
@@ -37,6 +47,7 @@
         @media screen and (max-width: $breakpoint768) {
             @include width100vw;
             &.btn {
+                width: 100vw;
                 border-radius: 0;
             }
         }

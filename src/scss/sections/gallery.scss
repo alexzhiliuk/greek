@@ -21,6 +21,10 @@
         gap: 30px;
         animation: spin 10s infinite linear;
         // padding-right: 30px;
+
+        @media screen and (max-width: $breakpoint576) {
+            animation: spin 20s infinite linear;
+        }
     }
 
     img {

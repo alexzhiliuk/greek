@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Favicons -->
+    <!-- Favicons -->
+     
 
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&_v=20251125184849"
-			rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap&_v=20251128160432" rel="stylesheet">
+    
 
-		<!-- CSS -->
-		<link rel="stylesheet" href="css/style.min.css?_v=20251125184849">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.css?_v=20251128160432">
 
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/swiper/swiper-bundle.min.css?_v=20251125184849" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css?_v=20251128160432"
+    />
 
-		<!-- JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js?_v=20251125184849"></script>
-		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?_v=20251125184849"></script>
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js?_v=20251128160432"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js?_v=20251128160432"></script>
 
-		<title>Карта лояльности</title>
-	</head>
-	<body class="_look">
+    <title>Карта лояльности</title>
+</head>
+    <body>
 
-		<div class="content">
-
-			<main>
-
-				<div class="hero" id="scrollContainer">
-					<div class="hero__content">
-						<div class="hero__text container">
-							<div class="hero__title">
-								<img src="img/hero/Logo.svg" alt>
-								<img src="img/hero/Logo_white.svg" class="_white" alt>
-							</div>
-							<div class="hero__subtitle h3 h3_italic tac">by Greek Legend</div>
-						</div>
-						<div class="hero__image" id="zoomImage"></div>
-					</div>
-				</div>
-
-				<!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-				<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <div class="content">
+            
+    
+            <main>            
+                <div class="hero" id="scrollContainer">
+    <div class="hero__content">
+        <div class="hero__text container">
+            <div class="hero__title">
+                <img src="img/hero/Logo.svg" alt="">
+                <img src="img/hero/Logo_white.svg" class="_white" alt="">
+            </div>
+            <div class="hero__subtitle h3 h3_italic tac">by Greek Legend</div>
+        </div>
+        <div class="hero__image" id="zoomImage"></div>
+    </div>
+</div>
+<!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js?_v=20251128160432"></script>
+				<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js?_v=20251128160432"></script>
 
 				<script>
 window.addEventListener("load", () => {
@@ -80,9 +80,9 @@ window.addEventListener("load", () => {
  document.querySelector('.hero').classList.add('_vis')
 });
 </script> -->
-				<!-- <div style="height: 100vh;"></div> -->
+<!-- <div style="height: 100vh;"></div> -->
 
-				<script>
+<script>
     const scrollContainer = document.getElementById('scrollContainer');
     const image = document.getElementById('zoomImage');
     const scaleDisplay = document.getElementById('scale');
@@ -100,27 +100,27 @@ window.addEventListener("load", () => {
     let scrollDistance;
     if (isMobile) {
         scrollDistance = window.innerHeight / 10;
-		 scrollContainer.style.height = `${window.innerHeight + scrollDistance  }px`;
+        scrollContainer.style.height = `${window.innerHeight + scrollDistance}px`;
     } else {
         scrollDistance = window.innerHeight * 2;
-		 scrollContainer.style.height = `${window.innerHeight + scrollDistance - (image.offsetHeight * 2) }px`;
+        scrollContainer.style.height = `${window.innerHeight + scrollDistance - (image.offsetHeight * 2)}px`;
     }
-   
+
 
 
 
     function handleScroll() {
         const scrollY = window.scrollY;
 
-		if (scrollY <= 1) {
-    image.style.transform = `scale(1)`;
-    image.style.borderRadius = `18px`;
-    image.style.translate = `0% 0%`;
-    textSection.classList.remove("_white");
-    return;
-}
+        if (scrollY <= 1) {
+            image.style.transform = `scale(1)`;
+            image.style.borderRadius = `18px`;
+            image.style.translate = `0% 0%`;
+            textSection.classList.remove("_white");
+            return;
+        }
         const heroHeight = heroSection.offsetHeight;
-        
+
         // Процент прокрутки секции героя (0 до 1)
         let zoomProgress;
         if (isMobile) {
@@ -129,528 +129,497 @@ window.addEventListener("load", () => {
             zoomProgress = Math.min(scrollY / (scrollDistance / 2), 1);
         }
         const scrollProgress = Math.min((scrollY - (scrollDistance / 2)) / (scrollDistance / 2), 1);
-        
+
         // Вычисляем текущий масштаб
         const currentScale = minScale + (maxScale - minScale) * zoomProgress;
 
         if ((image.offsetWidth * currentScale) >= (window.innerWidth - 20)) {
-            textSection.classList.add("_white") 
+            textSection.classList.add("_white")
             console.log("add class")
         }
-        else { 
+        else {
             textSection.classList.remove("_white")
             console.log("remove class")
         }
-        
+
         // Применяем трансформацию
         image.style.transform = `scale(${currentScale})`;
         image.style.borderRadius = `${18 * (1 - zoomProgress)}px`;
 
         // console.log(scrollProgress, imageScrollHeight)
         // if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `-50% calc(-50% - ${Math.min(imageScrollHeight * scrollProgress, imageScrollHeight)}px` }
-		 if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `0% calc(-0px` }
+        if (scrollProgress && scrollProgress > 0 && !isMobile) { image.style.translate = `0% calc(-0px` }
     }
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Инициализация
 </script>
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__header jcc tac">
+            <p class="caption caption_italic">Программа Greek Salad от Greek Legend</p>
+            <h2 class="h2 h2_small-caps section__title lower">Предложите гостям подлинный вкус Греции <br> и зарабатывайте больше</h2>
+        </div>
+    </div>
+</section>
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__body">
+            <div class="grid grid_4-col salad">
+                <div class="col-span-2 salad__img">
+                    <img src="img/salad/img.png" alt="">
+                </div>
+                <div>
+                    <p class="caption caption_small-caps lower">Греческий салат — универсальное блюдо для любого ресторана</p>
+                    <img src="img/flags/Flag_of_Greece.svg" class="salad__flag" alt="">
+                </div>
+                <div>
+                    <h2 class="lead-typo">Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира. </h2>
+                    <div class="col-em mt-80 default-typo">
+                        <p >
+                            Теперь вы можете предложить его гостям в по-настоящему аутентичном исполнении — с тем самым фермерским оливковым маслом Extra Virgin, которое едят в самой Греции. 
+                        </p>
+                        <p >
+                            Он одинаково уместен и в утончённом гастробистро, и в демократичном кафе, потому что сочетает простоту, свежесть и универсальность вкуса.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__header section__header_row">
+            <h2 class="section__title h2 h2_small-caps lower">Преимущества для ресторанов</h2>
+        </div>
+        <div class="section__body top-border">
+            <div class="advantages">
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">+10%</div>
+                    <h3 class="advantage__title ">До 10% к годовой выручке</h3>
+                    <p class="advantage__text default-typo">Благодаря продаже бутылок масла в вашем ресторане</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">+30%</div>
+                    <h3 class="advantage__title ">Рост продаж до 30%</h3>
+                    <p class="advantage__text default-typo">Гости получают новый аутентичный вкус и доверие к заведению</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">+10%</div>
+                    <h3 class="advantage__title ">Доход официанта + 10%</h3>
+                    <p class="advantage__text default-typo">Официанты получают комиссии <br>от стоимости каждой проданной бутылки</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">+₽</div>
+                    <h3 class="advantage__title ">Пожизненный доход с золотой картой</h3>
+                    <p class="advantage__text default-typo">Золотая карта для всех гостей купивших масло, позволяющая отслеживать последующие покупки генерируя постоянный доход</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">PR</div>
+                    <h3 class="advantage__title ">Пиар и маркетинг-поддержка</h3>
+                    <p class="advantage__text default-typo">Проводим мастер-классы в вашем ресторане с привлечением федеральных СМИ (Лента.ру, РБК, Коммерсант, Газета.ру, Спорт-Экспресс).</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">Sale</div>
+                    <h3 class="advantage__title ">Выгодная цена: по себестоимости</h3>
+                    <p class="advantage__text default-typo">Поставляем масло для салата по цене вашего текущего масла</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">↑↑↑</div>
+                    <h3 class="advantage__title ">Система лояльности Greek Salad</h3>
+                    <p class="advantage__text default-typo">Личный кабинет для ресторана с возможностью отслеживать статистику</p>
+                </div>
+                <div class="advantage">
+                    <div class="advantage__num factoid-typo">Simple</div>
+                    <h3 class="advantage__title ">Без изменений процессов</h3>
+                    <p class="advantage__text default-typo">Внедряется без перестройки кухни, персонала и технологической карты</p>
+                </div>
+            </div>
+            <button id="showAdvantages" class="advantages__show-all caption caption_smal-caps lower">Показать все</button>
+        </div>
+    </div>
+</section>
 
-				<section class="section">
-					<div class="section__container container">
-						<div class="section__header jcc tac">
-							<p class="caption caption_italic">Программа Greek Salad от Greek Legend</p>
-							<h2 class="h2 h2_small-caps section__title lower">Предложите гостям подлинный вкус Греции
-								<br> и зарабатывайте больше</h2>
-						</div>
-					</div>
-				</section>
-				<section class="section">
-					<div class="section__container container">
-						<div class="section__body">
-							<div class="grid grid_4-col salad">
-								<div class="col-span-2 salad__img">
-									<img src="img/salad/img.png" alt>
-								</div>
-								<div>
-									<p class="caption caption_small-caps lower">Греческий салат — универсальное блюдо для
-										любого ресторана</p>
-									<img src="img/flags/Flag_of_Greece.svg" class="salad__flag" alt>
-								</div>
-								<div>
-									<h2 class="lead-typo">Не важно, какой у вас формат: греческая, итальянская, американская
-										или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах
-										мира. </h2>
-									<div class="col-em mt-80 default-typo">
-										<p>
-											Теперь вы можете предложить его гостям в по-настоящему аутентичном исполнении — с тем
-											самым фермерским оливковым маслом Extra Virgin, которое едят в самой Греции.
-										</p>
-										<p>
-											Он одинаково уместен и в утончённом гастробистро, и в демократичном кафе, потому что
-											сочетает простоту, свежесть и универсальность вкуса.
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="section">
-					<div class="section__container container">
-						<div class="section__header section__header_row">
-							<h2 class="section__title h2 h2_small-caps lower">Преимущества для ресторанов</h2>
-						</div>
-						<div class="section__body top-border">
-							<div class="advantages">
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">+10%</div>
-									<h3 class="advantage__title ">До 10% к годовой выручке</h3>
-									<p class="advantage__text default-typo">Благодаря продаже бутылок масла в вашем
-										ресторане</p>
-								</div>
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">+30%</div>
-									<h3 class="advantage__title ">Рост продаж до 30%</h3>
-									<p class="advantage__text default-typo">Гости получают новый аутентичный вкус и доверие к
-										заведению</p>
-								</div>
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">+10%</div>
-									<h3 class="advantage__title ">Доход официанта + 10%</h3>
-									<p class="advantage__text default-typo">Официанты получают комиссии <br>от стоимости каждой
-										проданной бутылки</p>
-								</div>
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">+₽</div>
-									<h3 class="advantage__title ">Пожизненный доход с золотой картой</h3>
-									<p class="advantage__text default-typo">Золотая карта для всех гостей купивших масло,
-										позволяющая отслеживать последующие покупки генерируя постоянный доход</p>
-								</div>
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">PR</div>
-									<h3 class="advantage__title ">Пиар и маркетинг-поддержка</h3>
-									<p class="advantage__text default-typo">Проводим мастер-классы в вашем ресторане с
-										привлечением федеральных СМИ (Лента.ру, РБК, Коммерсант, Газета.ру, Спорт-Экспресс).</p>
-								</div>
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">Sale</div>
-									<h3 class="advantage__title ">Выгодная цена: по себестоимости</h3>
-									<p class="advantage__text default-typo">Поставляем масло для салата по цене вашего текущего
-										масла</p>
-								</div>
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">↑↑↑</div>
-									<h3 class="advantage__title ">Система лояльности Greek Salad</h3>
-									<p class="advantage__text default-typo">Личный кабинет для ресторана с возможностью
-										отслеживать статистику</p>
-								</div>
-								<div class="advantage">
-									<div class="advantage__num factoid-typo">Simple</div>
-									<h3 class="advantage__title ">Без изменений процессов</h3>
-									<p class="advantage__text default-typo">Внедряется без перестройки кухни, персонала и
-										технологической карты</p>
-								</div>
-							</div>
-							<button id="showAdvantages"
-								class="advantages__show-all caption caption_smal-caps lower">Показать все</button>
-						</div>
-					</div>
-				</section>
-
-				<script>
+<script>
     $("#showAdvantages").click(function () { 
         $(this).hide()
         $(".advantages").addClass("_all")
     })
 </script>
-				<section class="section">
-					<div class="section__container container">
-						<div class="section__header section__header_row">
-							<h2 class="section__title h2 h2_small-caps lower">Масло Greek Legend</h2>
-						</div>
-						<div class="section__body top-border">
-							<div class="oil-grid">
-								<div class="oil">
-									<div class="oil__img">
-										<img src="img/oil/oil1.png" alt>
-									</div>
-									<div class="oil__info">
-										<div class="oil__header">
-											<p class="caption caption_italic">Урожай 2024–2025 / 500 мл</p>
-											<h2 class="oil__title">Greek Legend Premium</h2>
-										</div>
-										<div class="oil__body">
-											<div class="oil__desc default-typo">
-												<p>
-													Лимитированное масло раннего сбора.
-													Ультра-премиум качество, насыщенный
-													вкус, максимум полифенолов и витаминов.
-													Для ценителей высокой кухни.
-												</p>
-												<picture class="oil__range">
-													<source media="(max-width: 1200px)" srcset="img/oil/range1_mb.svg">
-													<img src="img/oil/range1.svg" alt>
-												</picture>
-											</div>
-										</div>
-										<div class="oil__footer">
-											<div class="oil__price lead-typo">
-												<span style="text-decoration: line-through;">4 900 ₽</span> <br>
-												По спец. условиям программы
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="oil">
-									<div class="oil__img">
-										<img src="img/oil/oil2.png" alt>
-									</div>
-									<div class="oil__info">
-										<div class="oil__header">
-											<p class="caption caption_italic">Урожай 2024–2025 / 500 мл</p>
-											<h2 class="oil__title">Greek Legend Select</h2>
-										</div>
-										<div class="oil__body">
-											<div class="oil__desc default-typo">
-												<p>
-													Лимитированное масло раннего сбора.
-													Ультра-премиум качество, насыщенный
-													вкус, максимум полифенолов и витаминов.
-													Для ценителей высокой кухни.
-												</p>
-												<picture class="oil__range">
-													<source media="(max-width: 1200px)" srcset="img/oil/range2_mb.svg">
-													<img src="img/oil/range2.svg" alt>
-												</picture>
-											</div>
-										</div>
-										<div class="oil__footer">
-											<div class="oil__price lead-typo">
-												<span style="text-decoration: line-through;">5 900 ₽</span> <br>
-												По спец. условиям программы
-											</div>
-										</div>
-									</div>
-								</div>
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__header section__header_row">
+            <h2 class="section__title h2 h2_small-caps lower">Масло Greek Legend</h2>
+        </div>
+        <div class="section__body top-border">
+            <div class="oil-grid">
+                <div class="oil">
+                    <div class="oil__img">
+                        <img src="img/oil/oil1.png" alt="">
+                    </div>
+                    <div class="oil__info">
+                        <div class="oil__header">
+                            <p class="caption caption_italic">Урожай 2024–2025 / 500 мл</p>
+                            <h2 class="oil__title">Greek Legend Premium</h2>
+                        </div>
+                        <div class="oil__body">
+                            <div class="oil__desc default-typo">
+                                <p>
+                                    Лимитированное масло раннего сбора.
+                                    Ультра-премиум качество, насыщенный
+                                    вкус, максимум полифенолов и витаминов.
+                                    Для ценителей высокой кухни.
+                                </p>
+                                <picture class="oil__range">
+                                    <source media="(max-width: 1200px)" srcset="img/oil/range1_mb.svg">
+                                    <img src="img/oil/range1.svg" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="oil__footer">
+                            <div class="oil__price lead-typo">
+                                <span style="text-decoration: line-through;">4 900 ₽</span> <br>
+                                По спец. условиям программы
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oil">
+                    <div class="oil__img">
+                        <img src="img/oil/oil2.png" alt="">
+                    </div>
+                    <div class="oil__info">
+                        <div class="oil__header">
+                            <p class="caption caption_italic">Урожай 2024–2025 / 500 мл</p>
+                            <h2 class="oil__title">Greek Legend Select</h2>
+                        </div>
+                        <div class="oil__body">
+                            <div class="oil__desc default-typo">
+                                <p>
+                                    Лимитированное масло раннего сбора.
+                                    Ультра-премиум качество, насыщенный
+                                    вкус, максимум полифенолов и витаминов.
+                                    Для ценителей высокой кухни.
+                                </p>
+                                <picture class="oil__range">
+                                    <source media="(max-width: 1200px)" srcset="img/oil/range2_mb.svg">
+                                    <img src="img/oil/range2.svg" alt="">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="oil__footer">
+                            <div class="oil__price lead-typo">
+                                <span style="text-decoration: line-through;">5 900 ₽</span> <br>
+                                По спец. условиям программы
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-							</div>
-						</div>
-					</div>
-				</section>
 
-				<script>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
     $("#showAdvantages").click(function () {
         $(this).hide()
         $(".advantages").addClass("_all")
     })
 </script>
-				<section class="section">
-					<div class="section__container container">
-						<div class="section__body">
-							<div class="stages">
-								<img src="img/stages/bg.png" alt class="stages__img">
-								<div class="stages__slider">
-									<p class="caption caption_italic">Этапы производства</p>
-									<div class="swiper" id="stagesSwiper">
-										<div class="swiper-wrapper">
-											<div class="swiper-slide stage">
-												<h2 class="stage__title h2 h2_small-caps lower">Сбор оливок</h2>
-												<div class="stage__img">
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__body">
+            <div class="stages">
+                <img src="img/stages/bg.png" alt="" class="stages__img">
+                <div class="stages__slider">
+                    <p class="caption caption_italic">Этапы производства</p>
+                    <div class="swiper" id="stagesSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide stage">
+                                <h2 class="stage__title h2 h2_small-caps lower">Сбор оливок</h2>
+                                <div class="stage__img">
+    
+                                </div>
+                                <p class="stage__text default-typo">
+                                    «Наш приоритет — доставить вам свежее и качественное масло прямо с греческих ферм в кратчайшие сроки…» «Наш приоритет — доставить вам свежее и качественное масло прямо с греческих ферм в кратчайшие сроки…» 
+                                </p>
+                            </div>
+                            <div class="swiper-slide stage">
+                                <h2 class="stage__title h2 h2_small-caps lower">Сбор оливок 2</h2>
+                                <div class="stage__img">
+    
+                                </div>
+                                <p class="stage__text default-typo">
+                                    «Наш приоритет — доставить вам свежее и качественное масло прямо с греческих ферм в кратчайшие сроки…» «Наш приоритет — доставить вам свежее и качественное масло прямо с греческих ферм в кратчайшие сроки…» 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination" id="stagesSwiperPagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__header section__header_row">
+            <h2 class="section__title h2 h2_small-caps lower">история greek legend</h2>
+        </div>
+        <div class="section__body">
+            <div class="history" data-tabs-container>
+                <div class="history__left top-border">
+                    <div class="history__header">
+                        <ul class="history__triggers caption caption_small-caps lower">
+                            <li class="_active" data-tab-trigger data-tab-id="1" >подход</li>
+                            <li data-tab-trigger data-tab-id="2">миссия и идея бренда</li>
+                            <li data-tab-trigger data-tab-id="3">культура масла</li>
+                        </ul>
+                        <div class="history__desc default-typo" data-tab-target data-tab-id="1">
+                            Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                            <br> <br>
+                            <a href="">Читать подробнее</a>
+                        </div>
+                        <div class="history__desc default-typo _hidden" data-tab-target data-tab-id="2">
+                            2
+                            <br> <br>
+                            <a href="">Читать подробнее</a>
+                        </div>
+                        <div class="history__desc default-typo _hidden" data-tab-target data-tab-id="3">
+                            3
+                            <br> <br>
+                            <a href="">Читать подробнее</a>
+                        </div>
+                    </div>
+                    <div class="history__body" data-tab-target data-tab-id="1">
+                        <blockquote class="history__blockquote tac h1">
+                            <p>
+                                «Настоящая Греция на вашей кухне!»
+                            </p>
+                        </blockquote>
+                        <div class="history-author">
+                            <div class="history-author__img">
+                                <img src="img/history/quote.png" alt="">
+                            </div>
+                            <p class="default-typo">
+                                Chatzigiorgis Georgios <br>
+                                <span class="caption caption_italic">CEO Greek Legend</span>
+                            </p>
+                            <div class="history-author__sign">
+                                <img src="img/history/sign.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history__body _hidden" data-tab-target data-tab-id="2">
+                        <blockquote class="history__blockquote tac h1">
+                            <p>
+                                «Настоящая Греция на вашей кухне!» 2
+                            </p>
+                        </blockquote>
+                        <div class="history-author">
+                            <div class="history-author__img">
+                                <img src="img/history/quote.png" alt="">
+                            </div>
+                            <p class="default-typo">
+                                Chatzigiorgis Georgios <br>
+                                <span class="caption caption_italic">CEO Greek Legend</span>
+                            </p>
+                            <div class="history-author__sign">
+                                <img src="img/history/sign.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="history__left-mb">
+                    <div class="history__triggers">
+                        <div class="history-acc _active" data-tab-trigger data-tab-id="1" >
+                            <div class="history-acc__header caption caption_small-caps lower">подход</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="1">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="history-acc" data-tab-trigger data-tab-id="2">
+                            <div class="history-acc__header caption caption_small-caps lower">миссия и идея бренда</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="2">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <di class="history-acc"v data-tab-trigger data-tab-id="3">
+                            <div class="history-acc__header caption caption_small-caps lower">культура масла</div>
+                            <div class="history-acc__body" data-tab-target data-tab-id="3">
+                                <div class="history__desc default-typo">
+                                    Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня — греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат греческий салат. 
+                                    <br> <br>
+                                    <a href="">Читать подробнее</a>
+                                </div>
+                                <div class="history__body">
+                                    <blockquote class="history__blockquote tac h1">
+                                        <p>
+                                            «Настоящая Греция на вашей кухне!»
+                                        </p>
+                                    </blockquote>
+                                    <div class="history-author">
+                                        <div class="history-author__img">
+                                            <img src="img/history/quote.png" alt="">
+                                        </div>
+                                        <p class="default-typo">
+                                            Chatzigiorgis Georgios <br>
+                                            <span class="caption caption_italic">CEO Greek Legend</span>
+                                        </p>
+                                        <div class="history-author__sign">
+                                            <img src="img/history/sign.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </di>
+                    </div>
+                </div>
+                <div class="history__right">
+                    <div class="swiper" id="historySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/history/img.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/history/img.png" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/history/img.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination" id="historySwiperPagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-												</div>
-												<p class="stage__text default-typo">
-													«Наш приоритет — доставить вам свежее и качественное масло прямо с греческих ферм в
-													кратчайшие сроки…» «Наш приоритет — доставить вам свежее и качественное масло прямо с
-													греческих ферм в кратчайшие сроки…»
-												</p>
-											</div>
-											<div class="swiper-slide stage">
-												<h2 class="stage__title h2 h2_small-caps lower">Сбор оливок 2</h2>
-												<div class="stage__img">
-
-												</div>
-												<p class="stage__text default-typo">
-													«Наш приоритет — доставить вам свежее и качественное масло прямо с греческих ферм в
-													кратчайшие сроки…» «Наш приоритет — доставить вам свежее и качественное масло прямо с
-													греческих ферм в кратчайшие сроки…»
-												</p>
-											</div>
-										</div>
-									</div>
-									<div class="swiper-pagination" id="stagesSwiperPagination"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="section">
-					<div class="section__container container">
-						<div class="section__header section__header_row">
-							<h2 class="section__title h2 h2_small-caps lower">история greek legend</h2>
-						</div>
-						<div class="section__body">
-							<div class="history" data-tabs-container>
-								<div class="history__left top-border">
-									<div class="history__header">
-										<ul class="history__triggers caption caption_small-caps lower">
-											<li class="_active" data-tab-trigger data-tab-id="1">подход</li>
-											<li data-tab-trigger data-tab-id="2">миссия и идея бренда</li>
-											<li data-tab-trigger data-tab-id="3">культура масла</li>
-										</ul>
-										<div class="history__desc default-typo" data-tab-target data-tab-id="1">
-											Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня —
-											греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий салат
-											греческий салат.
-											<br> <br>
-											<a href>Читать подробнее</a>
-										</div>
-										<div class="history__desc default-typo _hidden" data-tab-target data-tab-id="2">
-											2
-											<br> <br>
-											<a href>Читать подробнее</a>
-										</div>
-										<div class="history__desc default-typo _hidden" data-tab-target data-tab-id="3">
-											3
-											<br> <br>
-											<a href>Читать подробнее</a>
-										</div>
-									</div>
-									<div class="history__body" data-tab-target data-tab-id="1">
-										<blockquote class="history__blockquote tac h1">
-											<p>
-												«Настоящая Греция на вашей кухне!»
-											</p>
-										</blockquote>
-										<div class="history-author">
-											<div class="history-author__img">
-												<img src="img/history/quote.png" alt>
-											</div>
-											<p class="default-typo">
-												Chatzigiorgis Georgios <br>
-												<span class="caption caption_italic">CEO Greek Legend</span>
-											</p>
-											<div class="history-author__sign">
-												<img src="img/history/sign.png" alt>
-											</div>
-										</div>
-									</div>
-									<div class="history__body _hidden" data-tab-target data-tab-id="2">
-										<blockquote class="history__blockquote tac h1">
-											<p>
-												«Настоящая Греция на вашей кухне!» 2
-											</p>
-										</blockquote>
-										<div class="history-author">
-											<div class="history-author__img">
-												<img src="img/history/quote.png" alt>
-											</div>
-											<p class="default-typo">
-												Chatzigiorgis Georgios <br>
-												<span class="caption caption_italic">CEO Greek Legend</span>
-											</p>
-											<div class="history-author__sign">
-												<img src="img/history/sign.png" alt>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="history__left-mb">
-									<div class="history__triggers">
-										<div class="history-acc _active" data-tab-trigger data-tab-id="1">
-											<div class="history-acc__header caption caption_small-caps lower">подход</div>
-											<div class="history-acc__body" data-tab-target data-tab-id="1">
-												<div class="history__desc default-typo">
-													Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня
-													— греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий
-													салат греческий салат.
-													<br> <br>
-													<a href>Читать подробнее</a>
-												</div>
-												<div class="history__body">
-													<blockquote class="history__blockquote tac h1">
-														<p>
-															«Настоящая Греция на вашей кухне!»
-														</p>
-													</blockquote>
-													<div class="history-author">
-														<div class="history-author__img">
-															<img src="img/history/quote.png" alt>
-														</div>
-														<p class="default-typo">
-															Chatzigiorgis Georgios <br>
-															<span class="caption caption_italic">CEO Greek Legend</span>
-														</p>
-														<div class="history-author__sign">
-															<img src="img/history/sign.png" alt>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="history-acc" data-tab-trigger data-tab-id="2">
-											<div class="history-acc__header caption caption_small-caps lower">миссия и идея
-												бренда</div>
-											<div class="history-acc__body" data-tab-target data-tab-id="2">
-												<div class="history__desc default-typo">
-													Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня
-													— греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий
-													салат греческий салат.
-													<br> <br>
-													<a href>Читать подробнее</a>
-												</div>
-												<div class="history__body">
-													<blockquote class="history__blockquote tac h1">
-														<p>
-															«Настоящая Греция на вашей кухне!»
-														</p>
-													</blockquote>
-													<div class="history-author">
-														<div class="history-author__img">
-															<img src="img/history/quote.png" alt>
-														</div>
-														<p class="default-typo">
-															Chatzigiorgis Georgios <br>
-															<span class="caption caption_italic">CEO Greek Legend</span>
-														</p>
-														<div class="history-author__sign">
-															<img src="img/history/sign.png" alt>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<di class="history-acc" v data-tab-trigger data-tab-id="3">
-											<div class="history-acc__header caption caption_small-caps lower">культура масла</div>
-											<div class="history-acc__body" data-tab-target data-tab-id="3">
-												<div class="history__desc default-typo">
-													Не важно, какой у вас формат: греческая, итальянская, американская или авторская кухня
-													— греческий салат входит в топ-3 самых популярных салатов в ресторанах мира греческий
-													салат греческий салат.
-													<br> <br>
-													<a href>Читать подробнее</a>
-												</div>
-												<div class="history__body">
-													<blockquote class="history__blockquote tac h1">
-														<p>
-															«Настоящая Греция на вашей кухне!»
-														</p>
-													</blockquote>
-													<div class="history-author">
-														<div class="history-author__img">
-															<img src="img/history/quote.png" alt>
-														</div>
-														<p class="default-typo">
-															Chatzigiorgis Georgios <br>
-															<span class="caption caption_italic">CEO Greek Legend</span>
-														</p>
-														<div class="history-author__sign">
-															<img src="img/history/sign.png" alt>
-														</div>
-													</div>
-												</div>
-											</div>
-										</di>
-									</div>
-								</div>
-								<div class="history__right">
-									<div class="swiper" id="historySwiper">
-										<div class="swiper-wrapper">
-											<div class="swiper-slide">
-												<img src="img/history/img.png" alt>
-											</div>
-											<div class="swiper-slide">
-												<img src="img/history/img.png" alt>
-											</div>
-											<div class="swiper-slide">
-												<img src="img/history/img.png" alt>
-											</div>
-										</div>
-										<div class="swiper-pagination" id="historySwiperPagination"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<script>
+<script>
 
 </script>
-				<section class="section">
-					<div class="section__container container">
-						<div class="section__body">
-							<div class="gallery">
-								<div class="gallery__inner">
-									<img src="img/gallery/m1.png" alt>
-									<img src="img/gallery/card.png" alt>
-									<img src="img/gallery/big.png" alt>
-									<img src="img/gallery/m2.png" alt>
-								</div>
-								<div class="gallery__inner">
-									<img src="img/gallery/m1.png" alt>
-									<img src="img/gallery/card.png" alt>
-									<img src="img/gallery/big.png" alt>
-									<img src="img/gallery/m2.png" alt>
-								</div>
+                <section class="section">
+    <div class="section__container container">
+        <div class="section__body">
+            <div class="gallery">
+                <div class="gallery__inner">
+                    <img src="img/gallery/m1.png" alt="">
+                    <img src="img/gallery/card.png" alt="">
+                    <img src="img/gallery/big.png" alt="">
+                    <img src="img/gallery/m2.png" alt="">
+                </div>
+                <div class="gallery__inner">
+                    <img src="img/gallery/m1.png" alt="">
+                    <img src="img/gallery/card.png" alt="">
+                    <img src="img/gallery/big.png" alt="">
+                    <img src="img/gallery/m2.png" alt="">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
 
-							</div>
-						</div>
-					</div>
-				</section>
+                <section class="section" id="programm">
+    <div class="section__container container">
+        <div class="section__header section__header_row">
+            <h2 class="section__title h2 h2_small-caps lower">станьте участником программы</h2>
+        </div>
+        <div class="section__body top-border">
+            <div class="programm">
+                <form action="" class="programm__form">
+                    <div class="programm__text lead-typo">
+                        Небольшой текст-описание о том, что случится далее, когда человек оставит заявку. Тут должна быть какая-то дорожная карта.
+                    </div>
+                    <div class="programm__fields">
+                        <div class="input-block">
+                            <label for="">Имя*</label>
+                            <div class="input-wrapper">
+                                <input type="tel" class="input" placeholder="Имя" required>
+                            </div>
+                        </div>
+                        <div class="input-block">
+                            <label for="">Телефон*</label>
+                            <div class="input-wrapper">
+                                <input type="tel" class="input" placeholder="+7 902 475–21–88" required data-tel-input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="checkboxes">
+                        <label  class="checkbox-block">
+                            <input type="checkbox" required>
+                            Я согласен с политикой обработки персональных данных
+                        </label>
+                    </div>
+                    <button type="submit" class="btn caption caption_small-caps lower programm__submit">Оставить заявку</button>
+                    <div class="lead-typo success-color">
+                        Форма успешно отправлена
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
-				<section class="section" id="programm">
-					<div class="section__container container">
-						<div class="section__header section__header_row">
-							<h2 class="section__title h2 h2_small-caps lower">станьте участником программы</h2>
-						</div>
-						<div class="section__body top-border">
-							<div class="programm">
-								<form action class="programm__form">
-									<div class="programm__text lead-typo">
-										Небольшой текст-описание о том, что случится далее, когда человек оставит заявку. Тут
-										должна быть какая-то дорожная карта.
-									</div>
-									<div class="programm__fields">
-										<div class="input-block">
-											<label for>Имя*</label>
-											<div class="input-wrapper">
-												<input type="tel" class="input" placeholder="Имя" required>
-											</div>
-										</div>
-										<div class="input-block">
-											<label for>Телефон*</label>
-											<div class="input-wrapper">
-												<input type="tel" class="input" placeholder="+7 902 475–21–88" required data-tel-input>
-											</div>
-										</div>
-									</div>
-									<div class="checkboxes">
-										<label class="checkbox-block">
-											<input type="checkbox" required>
-											Я согласен с политикой обработки персональных данных
-										</label>
-									</div>
-									<button type="submit"
-										class="btn caption caption_small-caps lower programm__submit">Оставить заявку</button>
-									<div class="lead-typo success-color">
-										Форма успешно отправлена
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</section>
+            </main>
+            <div class="cta-fixed">
+    <div class="cta-fixed__body">
+        <img src="img/cta-fixed/card.png" alt="">
+    </div>
+    <a href="#programm" class="cta-fixed__btn btn default-typo default-typo_small-caps lower">оставить заявку</a>
+</div>
 
-			</main>
-			<div class="cta-fixed">
-				<div class="cta-fixed__body">
-					<img src="img/cta-fixed/card.png" alt>
-				</div>
-				<a href="#programm"
-					class="cta-fixed__btn btn default-typo default-typo_small-caps lower">оставить заявку</a>
-			</div>
-
-			<script>
+<script>
     $(document).ready(function () { 
         const windowHeight = window.innerHeight;
         const $programmSection = $("#programm")
@@ -691,10 +660,11 @@ window.addEventListener("load", () => {
         toggleCTA()
     })
 </script>
+    
+            
+        </div>
 
-		</div>
+        <script src="js/app.min.js?_v=20251128160432"></script>
 
-		<script src="js/app.min.js?_v=20251125184849"></script>
-
-	</body>
+    </body>
 </html>
