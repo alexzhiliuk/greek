@@ -13,6 +13,28 @@ const stagesSwiper = new Swiper('#stagesSwiper', {
     pagination: {
         el: '#stagesSwiperPagination',
     },
+
+    on: {
+        init: function() {
+            // Активируем первое изображение при инициализации
+            updateStageImage(this.activeIndex);
+        },
+        slideChange: function() {
+            // Обновляем изображение при смене слайда
+            updateStageImage(this.activeIndex);
+        }
+    }
     
 })
 
+
+function updateStageImage(index) {
+    const images = document.querySelectorAll('.stages__img');
+    images.forEach((img, i) => {
+        if (i === index) {
+            img.classList.add('_active');
+        } else {
+            img.classList.remove('_active');
+        }
+    });
+}

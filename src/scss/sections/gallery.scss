@@ -1,6 +1,10 @@
 @keyframes spin {
-    from {translate: 0%}
-    to {translate: calc(-100% - 30px)}
+    from {
+        translate: 0%;
+    }
+    to {
+        translate: calc(-100% - 30px);
+    }
 }
 
 .gallery {
@@ -19,11 +23,23 @@
         display: flex;
         align-items: flex-start;
         gap: 30px;
-        animation: spin 10s infinite linear;
+        animation: spin 20s infinite linear;
         // padding-right: 30px;
 
         @media screen and (max-width: $breakpoint576) {
             animation: spin 20s infinite linear;
+        }
+    }
+
+    &__item {
+        overflow: hidden;
+        border-radius: 18px;
+        position: relative;
+
+        &:hover {
+            .gallery-hover {
+                opacity: 1;
+            }
         }
     }
 
@@ -41,7 +57,6 @@
         -moz-user-drag: none;
         -o-user-drag: none;
         user-drag: none;
-    
 
         @media screen and (max-width: $breakpoint576) {
             max-width: 90vw;
@@ -74,5 +89,37 @@
                 max-width: 90vw;
             }
         }
+    }
+}
+
+.gallery-hover {
+    position: absolute;
+    inset: 0;
+    background: #FFF;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: clamp(16px, 3vw, 32px);
+
+    pointer-events: none;
+    text-align: center;
+    opacity: 0;
+
+    &__title {
+        color: $colorBrown;
+        
+    }
+
+    &__text {
+        letter-spacing: .05em;
+        font-size: clamp(16px, 3vw, 32px);
+    }
+
+    &__caption {
+        opacity: .3;
+        font-size: clamp(14px, 2vw, 20px);
     }
 }

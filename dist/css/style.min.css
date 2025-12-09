@@ -794,6 +794,9 @@ button {
 .h3_italic {
   font-style: Italic;
 }
+.h3_small-caps {
+  font-variant: small-caps;
+}
 
 .default-typo {
   font-weight: 400;
@@ -1213,6 +1216,10 @@ button {
   object-fit: cover;
   z-index: -1;
   inset: 0;
+  display: none;
+}
+.stages__img._active {
+  display: block;
 }
 @media screen and (max-width: 991.98px) {
   .stages__img {
@@ -1451,12 +1458,20 @@ button {
   display: flex;
   align-items: flex-start;
   gap: 30px;
-  animation: spin 10s infinite linear;
+  animation: spin 20s infinite linear;
 }
 @media screen and (max-width: 575.98px) {
   .gallery__inner {
     animation: spin 20s infinite linear;
   }
+}
+.gallery__item {
+  overflow: hidden;
+  border-radius: 18px;
+  position: relative;
+}
+.gallery__item:hover .gallery-hover {
+  opacity: 1;
 }
 .gallery img {
   flex-shrink: 0;
@@ -1501,6 +1516,31 @@ button {
   .gallery .swiper-slide img {
     max-width: 90vw;
   }
+}
+
+.gallery-hover {
+  position: absolute;
+  inset: 0;
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 3vw, 32px);
+  pointer-events: none;
+  text-align: center;
+  opacity: 0;
+}
+.gallery-hover__title {
+  color: #A96232;
+}
+.gallery-hover__text {
+  letter-spacing: 0.05em;
+  font-size: clamp(16px, 3vw, 32px);
+}
+.gallery-hover__caption {
+  opacity: 0.3;
+  font-size: clamp(14px, 2vw, 20px);
 }
 
 .cta-fixed {

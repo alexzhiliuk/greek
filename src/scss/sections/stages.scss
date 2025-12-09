@@ -29,6 +29,11 @@
         z-index: -1;
         inset: 0;
 
+        display: none;
+        &._active {
+            display: block;
+        }
+
         @media screen and (max-width: $breakpoint992) {
             position: static;
             height: clamp(280px, 35vw, 350px);

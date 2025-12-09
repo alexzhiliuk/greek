@@ -71,6 +71,8 @@
         font-style: Italic;
     }
 
+    @include smallCaps();
+
 }
 
 .default-typo {
